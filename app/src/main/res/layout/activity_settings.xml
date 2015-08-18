@@ -1,0 +1,179 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.navtureapps.proximiiotestapp.MainActivity" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/main_background" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App ID:"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/appidtext"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:layout_marginTop="25dp"
+            android:layout_alignBaseline="@id/appidtext"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:id="@+id/appidinput"
+            android:layout_toRightOf="@id/appidtext"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/appidinput"
+            android:layout_alignBaseline="@id/appidinput"
+            android:id="@+id/saveappid"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auth Token:"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_below="@id/appidtext"
+            android:id="@+id/authtokentext"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:layout_marginTop="10dp"
+            android:layout_alignBaseline="@id/authtokentext"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:inputType="text"
+            android:id="@+id/authtokeninput"
+            android:scrollHorizontally="true"
+            android:maxWidth="150dp"
+            android:layout_below="@id/appidinput"
+            android:layout_toRightOf="@id/authtokentext"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/authtokeninput"
+            android:layout_alignBaseline="@id/authtokeninput"
+            android:layout_below="@id/appidinput"
+            android:id="@+id/saveauthtoken"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organization ID:"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/organizationidtext"
+            android:layout_below="@id/authtokentext"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/organizationidtext"
+            android:text="Loading..."
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/organizationidvalue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proximiio Anonymous ID:"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/anonymousidtext"
+            android:layout_below="@id/organizationidvalue"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/anonymousidtext"
+            android:text="Loading..."
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/anonymousidvalue" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Indoor Atlas app key:"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/appkeytext"
+            android:layout_below="@id/anonymousidvalue"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appkeytext"
+            android:text="Loading..."
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/appkeyvalue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Indoor Atlas app secret:"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/appsecrettext"
+            android:layout_below="@id/appkeyvalue"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appsecrettext"
+            android:text="Loading..."
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/appsecretvalue" />
+
+    </RelativeLayout>
+
+</FrameLayout>
