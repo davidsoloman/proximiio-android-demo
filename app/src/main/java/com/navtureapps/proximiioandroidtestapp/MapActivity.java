@@ -20,11 +20,6 @@ import com.navtureapps.proximiioandroid.ProximiioInput;
 import com.navtureapps.proximiioandroid.ProximiioListener;
 
 public class MapActivity extends Activity implements OnMapReadyCallback {
-
-    private static final double DEFAULT_LATITUDE = 63;
-    private static final double DEFAULT_LONGITUDE = 26;
-    private static final float  DEFAULT_ZOOM = 5.5f;
-
     private Proximiio proximiio;
     private GoogleMap map;
     private Marker iBeaconMarker;
@@ -161,6 +156,6 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
         this.map = map;
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(DEFAULT_LATITUDE, DEFAULT_LONGITUDE), DEFAULT_ZOOM));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(63, 26), 5.5f));
     }
 }

@@ -9,6 +9,11 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
     }
     buildTypes {
         release {
@@ -41,5 +46,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.google.android.gms:play-services-base:7.5.0'
     compile 'com.google.android.gms:play-services-location:7.5.0'
-    compile 'com.navtureapps.proximiiolibrary:proximiioandroidlibrary-release@aar'
+    compile 'com.android.support:multidex:1.0.0'
+    compile ('com.firebase:geofire:1.1.0')  {
+        exclude module: 'firebase-client-android'
+        exclude module: 'firebase-client-jvm'
+    }
+    compile ('com.navtureapps.proximiiolibrary:proximiioandroidlibrary-release@aar') {
+        exclude group: 'com.firebase', module: 'firebase-client-android'
+    }
 }

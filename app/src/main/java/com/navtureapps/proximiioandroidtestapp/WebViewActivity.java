@@ -35,6 +35,7 @@ public class WebViewActivity extends Activity {
 
         final Activity activity = this;
         final WebView webView = (WebView)findViewById(R.id.webview);
+        webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         ProximiioListener listener = new ProximiioListener() {
             @Override

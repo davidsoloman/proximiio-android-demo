@@ -6,12 +6,11 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 public class Settings {
-    private static final String TAG = "Settings";
     private static String appID;
     private static String authToken;
-    private static final String defaultAppID = "-JsznWmFZ1Jj3pMU5Ann";
-    private static final String defaultAuthToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjQxMDI0NDQ3OTksInYiOjAsImQiOnsidWlkIjoiLUpzeXZEUXM2dVdUZVoyOHlySjkifSwiaWF0IjoxNDM5OTA5MDEyfQ.IK85WLe8zpQyQf_9omaN02UyVdogEd1jrSFJuLXN2es";
-
+    private static final String defaultAppID = "-JyOnqJ3Mvsw25D_MEHW";
+    private static final String defaultAuthToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjMxMjIwNjQwMDAsInYiOjAsImQiOnsidWlkIjoiLUp5T25PRXBvdlEtTGpBYmxtMUMifSwiaWF0IjoxNDQxMzk1MDI2fQ.qptcNnz1othZMpCnlforZ_fm6Ck9HbHIjohz55MBeks";
+    
     public static String getAppID(Activity activity) {
         if (Settings.appID == null) {
             SharedPreferences preferences = activity.getSharedPreferences("ProximiioTestApp", Context.MODE_PRIVATE);
@@ -24,7 +23,6 @@ public class Settings {
             }
             Settings.appID = appID;
         }
-        Log.d(TAG, "Settings.appID: " + Settings.appID);
         return Settings.appID;
     }
 
@@ -40,12 +38,17 @@ public class Settings {
             }
             Settings.authToken = authToken;
         }
-        Log.d(TAG, "Settings.authToken: " + Settings.authToken);
         return Settings.authToken;
     }
 
     public static void setAppID(Activity activity, String appID) {
+        String originalAppId = getAppID(activity);
         SharedPreferences.Editor editor = activity.getSharedPreferences("ProximiioTestApp", Context.MODE_PRIVATE).edit();
+        if (originalAppId != null && !originalAppId.equals(appID)) {
+            Log.d("Settings", "API key has changed");
+            SharedPreferences.Editor idEditor = activity.getSharedPreferences("ProximiioID", Context.MODE_PRIVATE).edit();
+            idEditor.remove("ID");
+        }
         editor.putString("AppID", appID);
         editor.apply();
         Settings.appID = appID;

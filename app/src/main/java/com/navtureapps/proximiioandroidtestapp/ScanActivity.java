@@ -15,12 +15,17 @@ import com.navtureapps.proximiioandroid.ProximiioInput;
 import com.navtureapps.proximiioandroid.ProximiioListener;
 
 public class ScanActivity extends Activity {
+    private static final String TAG = "ScanActivity";
+
     private String tag;
     private Switch iBeaconsEnabled;
+    private Switch eddystoneEnabled;
     private Switch indoorAtlasEnabled;
     private Switch gpsGeofencesEnabled;
     private Switch steerPathEnabled;
     private TextView iBeaconPosition;
+    private TextView eddystonePosition;
+
     private TextView indoorAtlasPosition;
     private TextView gpsGeofencePosition;
     private TextView steerPathPosition;
@@ -39,14 +44,15 @@ public class ScanActivity extends Activity {
         }
 
         iBeaconsEnabled = (Switch)findViewById(R.id.ibeaconswitch);
+        eddystoneEnabled = (Switch)findViewById(R.id.eddystoneswitch);
         indoorAtlasEnabled = (Switch)findViewById(R.id.indooratlasswitch);
         gpsGeofencesEnabled = (Switch)findViewById(R.id.gpsgeofenceswitch);
         steerPathEnabled = (Switch)findViewById(R.id.steerpathswitch);
         iBeaconPosition = (TextView)findViewById(R.id.ibeaconposition);
+        eddystonePosition = (TextView)findViewById(R.id.eddystoneposition);
         indoorAtlasPosition = (TextView)findViewById(R.id.indooratlasposition);
         gpsGeofencePosition = (TextView)findViewById(R.id.gpsgeofenceposition);
         steerPathPosition = (TextView)findViewById(R.id.steerpathposition);
-
         tag = "ScanActivity";
     }
 
@@ -107,10 +113,14 @@ public class ScanActivity extends Activity {
             case SteerPath:
                 setText(steerPathPosition, text);
                 break;
+            case EddyStone:
+                setText(eddystonePosition, text);
+                break;
         }
     }
 
     private void updateScan(ProximiioInput.InputType type, boolean active) {
+        Log.d(TAG, "updating scan for: " + type + " (active)");
         switch (type) {
             case iBeacon:
                 iBeaconsEnabled.setChecked(active);
@@ -146,6 +156,15 @@ public class ScanActivity extends Activity {
                 }
                 else {
                     setText(steerPathPosition, "None");
+                }
+                break;
+            case EddyStone:
+                eddystoneEnabled.setChecked(active);
+                if (!active) {
+                    setText(eddystonePosition, "Disabled");
+                }
+                else {
+                    setText(eddystonePosition, "None");
                 }
                 break;
         }

@@ -99,6 +99,10 @@ public class MainActivity extends Activity {
             }
         };
 
+//      UNCOMMENT and EDIT lines below to use your Proximi.IO Application
+//        Settings.setAppID(this, "Your App ID here!");
+//        Settings.setAuthToken(this, "Your auth-token here!");
+
         proximiio = new Proximiio(this, Settings.getAppID(this), Settings.getAuthToken(this), listener);
     }
 

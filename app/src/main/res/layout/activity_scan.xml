@@ -21,74 +21,136 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
+            <!-- iBeacon Scanning-->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:weightSum="3">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:text="iBeacon scanning: "
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/white"
                     android:textSize="21sp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:id="@+id/ibeaconswitch"
+                    android:layout_gravity="end"
+                    android:enabled="false" />
+            </LinearLayout>
+
+            <!--Eddystone scanning-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_gravity="center_vertical"
+                    android:text="Eddystone scanning: "
+                    android:textColor="@color/white"
+                    android:textSize="21sp"/>
+
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/eddystoneswitch"
+                    android:layout_gravity="end"
+                    android:enabled="false" />
+            </LinearLayout>
+
+            <!--IndoorAtlas scanning-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:singleLine="true"
                     android:text="Indoor Atlas: "
                     android:textColor="@color/white"
                     android:textSize="21sp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="GPS Geofences: "
-                    android:textColor="@color/white"
-                    android:textSize="21sp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SteerPath: "
-                    android:textColor="@color/white"
-                    android:textSize="21sp"/>
-
+                    android:id="@+id/indooratlasswitch"
+                    android:layout_gravity="end"
+                    android:enabled="false" />
             </LinearLayout>
 
+            <!--GPS Geofences scanning-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="end" >
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                <Switch
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ibeaconswitch"
-                    android:layout_marginTop="2dp"
-                    android:enabled="false" />
+                    android:singleLine="true"
+                    android:text="GPS Geofences: "
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"/>
 
                 <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/indooratlasswitch"
-                    android:enabled="false" />
-
-                <Switch
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:id="@+id/gpsgeofenceswitch"
+                    android:layout_gravity="end"
                     android:enabled="false" />
+            </LinearLayout>
+
+            <!--Steerpath scanning-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="Steerpath: "
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"/>
 
                 <Switch
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:id="@+id/steerpathswitch"
+                    android:layout_gravity="end"
                     android:enabled="false" />
-
             </LinearLayout>
 
         </LinearLayout>
@@ -103,6 +165,22 @@
 
         <TextView
             android:id="@+id/ibeaconposition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disabled"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Eddystone Beacon:"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/eddystoneposition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Disabled"
