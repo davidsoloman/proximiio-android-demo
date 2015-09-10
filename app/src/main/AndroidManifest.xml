@@ -30,6 +30,10 @@
         android:name="android.support.multidex.MultiDexApplication">
 
         <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ec06fd767fe1d3540549c42a9b3c57cda88c2f6f" />
+
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="ENTER_YOUR_GOOGLE_API_MAPS_KEY_HERE" />
 

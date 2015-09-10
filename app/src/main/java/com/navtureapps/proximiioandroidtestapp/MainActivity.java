@@ -14,6 +14,9 @@ import com.navtureapps.proximiioandroid.Proximiio;
 import com.navtureapps.proximiioandroid.ProximiioInput;
 import com.navtureapps.proximiioandroid.ProximiioListener;
 
+import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics;
+
 public class MainActivity extends Activity {
     private boolean background;
     private Proximiio proximiio;
@@ -22,6 +25,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Fabric.with(this, new Crashlytics());
 
         background = true;
 
